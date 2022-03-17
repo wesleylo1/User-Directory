@@ -2,10 +2,12 @@ import React, { useState } from "react"
 import "../styles/Card.css"
 import data from "../data"
 import Button from "./Button"
+import Form from "./Form"
 
 function Card() {
-  let users = data.slice(0, data.length)
-  let [index, setIndex] = useState(0)
+  const users = data.slice(0, data.length)
+  const [index, setIndex] = useState(0)
+  const [formPopup, setFormPopup] = useState(false)
 
   let user = users[index]
 
@@ -18,8 +20,8 @@ function Card() {
   }
 
   function next() {
-    if (index === 24) {
-      setIndex(24)
+    if (index === users.length - 1) {
+      setIndex(index)
     } else {
       setIndex(index + 1)
     }
@@ -34,18 +36,14 @@ function Card() {
     }
   }
 
-  function editCard() {
-    console.log(users)
-  }
-
-  const transparent = {
-    opacity: 0,
-    backgroundColor: "blue"
+  function newCard() {
+    setFormPopup(true)
   }
 
   return (
     <div id="background">
       <div id="main-card">
+        <Form trigger={formPopup} setTrigger={setFormPopup} users={users} />
         <h2>
           {user.id}/{users.length}
         </h2>
@@ -74,11 +72,11 @@ function Card() {
         </div>
       </div>
       <div id="buttons-row">
-        <Button style={transparent} onClick={previous} value="< Previous" />
+        <Button onClick={previous} value="< Previous" />
         <div id="edit-buttons">
-          <Button value="Edit" onClick={editCard} />
+          <Button value="Edit" />
           <Button value="Delete" onClick={deleteCard} />
-          <Button value="New" />
+          <Button value="New" onClick={newCard} />
         </div>
         <Button onClick={next} value="Next >" />
       </div>

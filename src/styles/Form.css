@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.button-box {
+  width: fit-content;
+  height: fit-content;
+}
+
+.form-button {
+  height: 2em;
+  width: 2em;
+}
+
+.form {
+  position: fixed;
+  top: 7em;
+  left: 40em;
+  padding-left: 4em;
+  padding-right: 4em;
+  padding-bottom: 4em;
+  background-color: white;
+  border: 5px solid #35a5db;
+  display: relative;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form p {
+  padding: 1em;
+}
+
+form button {
+  padding: 2px 5px;
+  border-radius: 10px;
+  border: 1px solid black;
+}

@@ -25,6 +25,11 @@ function Card() {
     }
   }
 
+  const transparent = {
+    opacity: 0,
+    backgroundColor: "blue"
+  }
+
   return (
     <div id="background">
       <div id="main-card">
@@ -57,7 +62,7 @@ function Card() {
         </div>
       </div>
       <div id="buttons-row">
-        <Button onClick={previous} value="< Previous" />
+        <Button style={transparent} onClick={previous} value="< Previous" />
         <div id="edit-buttons">
           <Button value="Edit" />
           <Button value="Delete" />

@@ -3,8 +3,8 @@ import "../styles/Card.css"
 import data from "../data"
 import Button from "./Button"
 
-let users = data.slice(0, data.length)
 function Card() {
+  let users = data.slice(0, data.length)
   let [index, setIndex] = useState(0)
 
   let user = users[index]
@@ -25,6 +25,19 @@ function Card() {
     }
   }
 
+  function deleteCard() {
+    data.splice(index, 1)
+    if (index <= data.length - 1) {
+      setIndex(index + 1)
+    } else {
+      setIndex(index - 1)
+    }
+  }
+
+  function editCard() {
+    console.log(users)
+  }
+
   const transparent = {
     opacity: 0,
     backgroundColor: "blue"
@@ -36,7 +49,6 @@ function Card() {
         <h2>
           {user.id}/{users.length}
         </h2>
-        {/*top right*/}
         <div id="name-area">
           <h1>
             {user.name.first} {user.name.last}
@@ -64,8 +76,8 @@ function Card() {
       <div id="buttons-row">
         <Button style={transparent} onClick={previous} value="< Previous" />
         <div id="edit-buttons">
-          <Button value="Edit" />
-          <Button value="Delete" />
+          <Button value="Edit" onClick={editCard} />
+          <Button value="Delete" onClick={deleteCard} />
           <Button value="New" />
         </div>
         <Button onClick={next} value="Next >" />

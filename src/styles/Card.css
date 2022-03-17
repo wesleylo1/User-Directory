@@ -58,8 +58,14 @@ h2 {
   border: none;
   background-color: #35a5db;
   color: white;
-  padding: 5px;
-  width: 6em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+Button {
+  font-weight: bold;
 }
 
 button {

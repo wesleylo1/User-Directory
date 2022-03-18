@@ -1,7 +1,8 @@
 import React from "react"
+import data from "../data"
 import "../styles/Edit.css"
 
-function Edit({ trigger, setTrigger, user }) {
+function Edit({ trigger, setTrigger, user, index }) {
   const updatedUser = {
     id: user.id,
     name: {
@@ -32,6 +33,12 @@ function Edit({ trigger, setTrigger, user }) {
   function handleMovieChange(e) {
     let index = e.target.name
     updatedUser.favoriteMovies[index] = e.target.value
+  }
+
+  function updateTheUser(e) {
+    e.preventDefault()
+    data.splice(index, 1, updatedUser)
+    alert("update saved")
   }
 
   return trigger ? (
@@ -124,7 +131,7 @@ function Edit({ trigger, setTrigger, user }) {
             type="text"
           />
         </p>
-        <button onClick={() => console.log("hi")}>Update User</button>
+        <button onClick={updateTheUser}>Update User</button>
       </form>
     </div>
   ) : (

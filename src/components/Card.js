@@ -51,7 +51,12 @@ function Card() {
     <div id="background">
       <div id="main-card">
         <Form trigger={formPopup} setTrigger={setFormPopup} users={users} />
-        <Edit trigger={editPopup} setTrigger={setEditPopup} user={user} />
+        <Edit
+          trigger={editPopup}
+          setTrigger={setEditPopup}
+          user={user}
+          index={index}
+        />
         <h2>
           {user.id}/{users.length}
         </h2>

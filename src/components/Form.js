@@ -1,9 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import data from "../data"
 import "../styles/Form.css"
 
 function Form({ trigger, setTrigger, users }) {
-  //   const [value, setValue] = useState("")
   const newUser = {
     id: users.length + 1,
     name: {

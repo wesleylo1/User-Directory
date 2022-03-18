@@ -3,11 +3,14 @@ import "../styles/Card.css"
 import data from "../data"
 import Button from "./Button"
 import Form from "./Form"
+import Edit from "./Edit"
 
 function Card() {
   const users = data.slice(0, data.length)
   const [index, setIndex] = useState(0)
   const [formPopup, setFormPopup] = useState(false)
+  const [editPopup, setEditPopup] = useState(false)
+  // const [user, setUser] = useState(users[index])
 
   let user = users[index]
 
@@ -40,10 +43,15 @@ function Card() {
     setFormPopup(true)
   }
 
+  function newEditCard() {
+    setEditPopup(true)
+  }
+
   return (
     <div id="background">
       <div id="main-card">
         <Form trigger={formPopup} setTrigger={setFormPopup} users={users} />
+        <Edit trigger={editPopup} setTrigger={setEditPopup} user={user} />
         <h2>
           {user.id}/{users.length}
         </h2>
@@ -74,7 +82,7 @@ function Card() {
       <div id="buttons-row">
         <Button onClick={previous} value="< Previous" />
         <div id="edit-buttons">
-          <Button value="Edit" />
+          <Button value="Edit" onClick={newEditCard} />
           <Button value="Delete" onClick={deleteCard} />
           <Button value="New" onClick={newCard} />
         </div>
